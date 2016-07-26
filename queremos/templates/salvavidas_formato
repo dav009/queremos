@@ -1,0 +1,2 @@
+En lo posible la informacion debe ser entregada en el siguiente formato: {dataset_formato}. 
+    En caso de no ser posible, un formato legible por maquina es deseable (i.e: CSVs, TSVs, SQL Dumps)
