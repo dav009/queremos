@@ -1,0 +1,26 @@
+{entidad_ciudad}, {fecha}
+
+{funcionario_nombre}
+{funcionario_cargo}
+{entidad_nombre}
+
+Referencia: Solicitud de información
+Respetado señor/a:
+
+En ejercicio del derecho fundamental de petición, consagrado en el artículo 23 de la Constitución Nacional, y del derecho de acceso a la información pública, consagrado en los artículos 20 y 74 de la misma, desarrollado por la ley 1712 de 2014; de manera respetuosa le solicito la siguiente información:
+{dataset_descripcion}
+
+{salvavidas_reserva}
+{salvavidas_reserva_antiguedad}
+{salvavidas_procesable}
+{salvavidas_formato_deseable}
+{salvavidas_no_discriminacion}
+
+La respuesta a la presente solicitud la recibiré en la {solicitante_direccion}.
+
+Cordialmente,
+
+
+___________________
+{solicitante_nombre} {solicitante_apellido}
+{solicitante_tipoIdentificacion} {solicitante_identificacion}
