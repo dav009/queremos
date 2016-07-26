@@ -1,14 +1,16 @@
-{entidad_ciudad}, {fecha}
+{institucion_ciudad}, {fecha}
 
 {funcionario_nombre}
 {funcionario_cargo}
-{entidad_nombre}
+{institucion_nombre}
 
 Referencia: Solicitud de información
 Respetado señor/a:
 
 En ejercicio del derecho fundamental de petición, consagrado en el artículo 23 de la Constitución Nacional, y del derecho de acceso a la información pública, consagrado en los artículos 20 y 74 de la misma, desarrollado por la ley 1712 de 2014; de manera respetuosa le solicito la siguiente información:
-{dataset_descripcion}
+{dataset_descripcion}.
+La informacion solicitada debe contener datos entre las fechas {dataset_fecha_inicial} y {dataset_fecha_final}.
+
 
 {salvavidas_reserva}
 {salvavidas_reserva_antiguedad}
@@ -22,5 +24,5 @@ Cordialmente,
 
 
 ___________________
-{solicitante_nombre} {solicitante_apellido}
-{solicitante_tipoIdentificacion} {solicitante_identificacion}
+{solicitante_nombre} {solicitante_apellido1}
+{solicitante_tipo_identificacion} {solicitante_identificacion}
