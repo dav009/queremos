@@ -1,0 +1,5 @@
+PyYAML==3.11
+weasyprint
+Flask==0.11.1
+mimerender==0.6.0
+viewkeys
