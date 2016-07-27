@@ -42,24 +42,12 @@ def base_answers():
   return answers
 
 
-TEMPLATE_BASE = "templates/basico"
-
 def load_extras():
     with open('extras.yaml') as f:
         return yaml.load(f)
 
 
-def load_text(path):
-    with codecs.open(path, 'r', 'utf-8') as f:
-        lines = [line for line in f]
-        return "\n".join(lines)
-
-def format_text(text, fields):
-    return text.format(**fields)
-
 def generate_base_letter(answers):
-    base_template_text = load_text(TEMPLATE_BASE)
-
     if answers['clasificacion_datos_flag']:
         salvavidas_reserva = "algo"
     if answers['clasificacion_antiguedad_mayor_a_15_anios_flag']:
@@ -72,17 +60,8 @@ def generate_base_letter(answers):
     answers_con_salvavidas = dict()
     answers_con_salvavidas.update(answers)
     answers_con_salvavidas.update(salvavidas)
+    return answers_con_salvavidas
 
-    formated_text = format_text(base_template_text, answers_con_salvavidas)
-
-
-    return formated_text
-
-def generate_reposicion(answers):
-    pass
-
-def generate_letter(answers):
-    pass
 
 def create_mock_letter():
   return generate_base_letter(base_answers())

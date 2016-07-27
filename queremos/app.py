@@ -15,7 +15,7 @@ def render_pdf(html):
 @app.route('/generar_solicitar', methods=['GET'])
 @mimerender(default='pdf', pdf=render_pdf)
 def generar():
-    html = render_template('solicitud.html', content=Markup(create_mock_letter()))
+    html = render_template('solicitud.html', **create_mock_letter())
     return { 'html': html }
 
 
