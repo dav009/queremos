@@ -9,13 +9,14 @@ mimerender = mimerender.FlaskMimeRender(global_charset='UTF-8')
 app = Flask(__name__)
 
 def render_pdf(html):
-    pdf = HTML(string=html).write_pdf(stylesheets=[CSS(string='@page { size: A4; margin: 1cm }')])
+    page_settings = [CSS(string='@page { size: A4; margin: 1cm }')]
+    pdf = HTML(string=html).write_pdf(stylesheets=page_settings)
     return pdf
 
 @app.route('/generar_solicitar', methods=['GET'])
 @mimerender(default='pdf', pdf=render_pdf)
-def generar():
-    html = render_template('solicitud.html', **create_mock_letter())
+def generar_solicitud():
+    html = render_template('solicitud.html', solicitud=create_mock_letter())
     return { 'html': html }
 
 

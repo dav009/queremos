@@ -4,40 +4,56 @@ import yaml
 def base_answers():
   answers = {
            "fecha": "octubre 15 2016",
-           "solicitante_nombre": "solicitante nombre",
-           "solicitante_apellido1": "apellido1 ",
-           "solicitante_apellido2": "apellido2",
-           "solicitante_tipo_identificacion": "identificacion",
-           "solicitante_identificacion": "c.c 123",
-           "solicitante_email": "solicitante@gmail.com",
-           "solicitante_telefono": "123",
-           "solicitante_direccion": "calle a # 23 -78, tulua",
 
-           "institucion_nombre": "nombre institucion",
-           "institucion_ciudad": "Bogota",
-           "institucion_direccion": "calle institucion # AB",
-           "institucion_telefono": "456",
+           "solicitante": {
+             "nombre": "solicitante nombre",
+             "apellido1": "apellido1 ",
+             "apellido2": "apellido2",
+             "tipo_identificacion": "identificacion",
+             "identificacion": "c.c 123",
+             "email": "solicitante@gmail.com",
+             "telefono": "123",
+             "direccion": "calle a # 23 -78, tulua"
+           },
 
-           "funcionario_nombre": "funcionario nombre",
-           "funcionario_apellido1": "apellido1",
-           "funcionario_apellido2": "apellido2",
-           "funcionario_cargo": "cargo funcionario",
+           "institucion": {
+             "nombre": "nombre institucion",
+             "ciudad": "Bogota",
+             "direccion": "calle institucion # AB",
+             "telefono": "456",
+           },
 
-            "dataset_descripcion": "dataset de asistencia de congresistas a sesiones del senado",
-            "dataset_campos": ["nombre congresista", "fecha sesion", "firma asistencia"],
-            "dataset_fecha_inicial": "octubre 10",
-            "dataset_fecha_final": "noveimbre 20",
+           "funcionario": {
+             "nombre": "funcionario nombre",
+             "apellido1": "apellido1",
+             "apellido2": "apellido2",
+             "cargo": "cargo funcionario"
+           },    
 
+           "dataset": {
+             "descripcion": "dataset de asistencia de congresistas a sesiones del senado",
+             "campos": ["nombre congresista", "fecha sesion", "firma asistencia"],
+             "fecha_inicial": "octubre 10",
+             "fecha_final": "noveimbre 20"
+           },
+
+           "privacidad": {
             "privacidad_vulnera_flag": "true/false",
-            "privacidad_campos_vulnerables": ["", ""],
+            "privacidad_campos_vulnerables": ["", ""]
+           },
 
-            "clasificacion_datos_flag": "true/false",
-            "clasificacion_antiguedad_mayor_a_15_anios_flag": "true/false",
+           "clasificacion": {
+              "datos_flag": "true/false",
+              "antiguedad_mayor_a_15_anios_flag": "true/false"
+           },
 
-            "restriccion_datos_industriales_flag": "true/false",
-            "restriccion_seguridad_nacional_flag": "true/false",
-            "restriccion_relaciones_internacionales_flag": "true/false",
-            "restriccion_investigaciones_en_curso_flag": "true/false"
+           "restriccion": {
+             "datos_industriales_flag": "true/false",
+             "seguridad_nacional_flag": "true/false",
+             "relaciones_internacionales_flag": "true/false",
+             "investigaciones_en_curso_flag": "true/false"
+           }
+
         }
   return answers
 
@@ -48,9 +64,9 @@ def load_extras():
 
 
 def generate_base_letter(answers):
-    if answers['clasificacion_datos_flag']:
+    if answers['clasificacion']['datos_flag']:
         salvavidas_reserva = "algo"
-    if answers['clasificacion_antiguedad_mayor_a_15_anios_flag']:
+    if answers['clasificacion']['antiguedad_mayor_a_15_anios_flag']:
         salvavidas_reserva_antiguedad = "algo"
 
 
