@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-  1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+  
+
+    <div class="container">
+
+      <div class="panel panel-primary">
+          <div class="panel-heading">Solicitante</div>
+          <div class="panel-body">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control input-sm" id="solicitante_nombre">
+            </div>
+            <div class="form-group">
+                <label for="1apellido">1er apellido</label>
+                <input type="text" class="form-control input-sm" id="solicitante_apellido1">
+            </div>
+            <div class="form-group">
+                <label for="2apellido">2do apellido</label>
+                <input type="text" class="form-control input-sm" id="solicitante_apellido2">
+            </div>
+
+             <div class="form-group">
+                <label for="email">email</label>
+                <input type="text" class="form-control input-sm" id="solicitante_email">
+            </div>
+
+             <div class="form-group">
+                <label for="telefono">Telefono</label>
+                <input type="text" class="form-control input-sm" id="solicitante_telefono">
+            </div>
+
+             <div class="form-group">
+                <label for="direccion">Direccion</label>
+                <input type="text" class="form-control input-sm" id="solicitante_direccion">
+            </div>
+
+             <div class="form-group col-sm-2">
+                <label for="nombre">Tipo Identificacion</label>
+                <select class="selectpicker">
+                  <option>CC</option>
+                  <option>TI</option>
+                  <option>Pasaporte</option>
+                  <option>NUIP</option>
+                </select>
+            </div>
+             <div class="form-group col-sm-4">
+                <label for="nombre">Identificacion</label>
+                <input type="nombre" class="form-control" id="solicitante_identificacion">
+            </div>
+          </div>
+
+
+      </div>
+
+      <div class="panel panel-primary">
+          <div class="panel-heading">Informacion sobre la Entidad</div>
+          <div class="panel-body">
+            <div class="form-group">
+                  <label for="entidad_nombre">Nombre</label>
+                  <input type="text" class="form-control input-sm" id="entidad_nombre">
+              </div>
+              <div class="form-group">
+                  <label for="entidad_ciudad">Ciudad</label>
+                  <input type="text" class="form-control input-sm" id="entidad_ciudad">
+              </div>
+              <div class="form-group">
+                  <label for="entidad_direccion">Direccion</label>
+                  <input type="text" class="form-control input-sm" id="entidad_direccion">
+              </div>
+              <div class="form-group">
+                  <label for="entidad_Telefono">Telefono</label>
+                  <input type="text" class="form-control input-sm" id="entidad_telefono">
+              </div>
+         </div>   
+      </div>
+
+      <div class="panel panel-primary">
+          <div class="panel-heading">Informacion sobre el funcionario al que dirige la peticion</div>
+          <div class="panel-body">
+            <div class="form-group">
+                  <label for="funcionario_nombre">Nombre</label>
+                  <input type="text" class="form-control input-sm" id="funcionario_nombre">
+              </div>
+              <div class="form-group">
+                  <label for="funcionario_ciudad">Apellido 1</label>
+                  <input type="text" class="form-control input-sm" id="funcionario_ap1">
+              </div>
+              <div class="form-group">
+                  <label for="entidad_direccion">Apellido 2</label>
+                  <input type="text" class="form-control input-sm" id="funcionario_ap2">
+              </div>
+              <div class="form-group">
+                  <label for="entidad_Telefono">Cargo</label>
+                  <input type="text" class="form-control input-sm" id="funcionario_cargo">
+              </div>
+          </div>
+      </div>
+
+      <div class="panel panel-primary">
+          <div class="panel-heading">Informacion sobre el dataset</div>
+          <div class="panel-body">
+            <div class="form-group">
+                  <label for="funcionario_nombre">Descripcion</label>
+                  <input type="text" class="form-control input-sm" id="dataset_descripcion">
+              </div>
+              <div class="form-group">
+                  <label for="funcionario_ciudad">Campos</label>
+                  <input type="text" class="form-control input-sm" id="dataset_campos">
+              </div>
+              <div class="form-group">
+                  <label for="entidad_direccion">Fecha</label>
+                  <input type="text" class="form-control input-sm" id="funcionario_ap2">
+              </div>
+      
+          </div>
+      </div>
+
+
+      <div class="panel panel-primary">
+          <div class="panel-heading">Clasificacion</div>
+          <div class="panel-body">
+            <div class="form-group">
+                  <label for="funcionario_nombre">Son datos Clasificados?</label>
+                  <input type="checkbox" class="form-control input-sm" id="dataset_descripcion">
+              </div>
+              <div class="form-group">
+                  <label for="funcionario_ciudad">Son datos clasificados con mas de 15 años de antiguedad?</label>
+                  <input type="checkbox" class="form-control input-sm" id="dataset_campos">
+              </div>
+          
+      
+          </div>
+      </div>
+
+      <div class="panel panel-primary">
+          <div class="panel-heading">Otras Restricciones</div>
+          <div class="panel-body">
+            <div class="form-group">
+                  <label for="funcionario_nombre">Son datos que podrian considerarse secretos industriales?</label>
+                  <input type="checkbox" class="form-control input-sm" id="dataset_descripcion">
+              </div>
+              <div class="form-group">
+                  <label for="funcionario_ciudad">Son datos  que podrian afectar la seguridad nacional?</label>
+                  <input type="checkbox" class="form-control input-sm" id="dataset_campos">
+              </div>
+              <div class="form-group">
+                  <label for="entidad_direccion">Son datos generados apartir de una investigacion judicial aun en curso?</label>
+                  <input type="checkbox" class="form-control input-sm" id="funcionario_ap2">
+              </div>
+
+            <div class="form-group">
+              <input type="submit" value="Generar solicitud">  
+              </div>  
+      
+          </div>
+      </div>
+
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+ 
+  </body>
+</html>

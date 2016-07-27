@@ -19,6 +19,10 @@ def generar_solicitud():
     html = render_template('solicitud.html', solicitud=create_mock_letter())
     return { 'html': html }
 
+@app.route('/', methods=['GET'])
+def formulario():
+    return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
