@@ -15,25 +15,37 @@
 <p><h2>Solicitud de información</h2></b>
 <p>Respetado señor/a:</p>
 
-<p>En ejercicio del derecho fundamental de petición, consagrado en el <i>artículo 23</i> de la Constitución Nacional, y del derecho de acceso a la información pública, consagrado en los <i>artículos 20 y 74</i> de la misma, desarrollado por la <i>ley 1712 de 2014</i>; de manera respetuosa le solicito la siguiente información:
+<p>En ejercicio del derecho fundamental de petición, consagrado en el <i>artículo 23</i> de la Constitución Nacional, y del derecho de acceso a la información pública, consagrado en los <i>artículos 20 y 74</i> de la misma, desarrollado por la <i>ley 1712 de 2014</i>; de manera respetuosa le solicito la siguiente información.
+
+<h3>Conjunto de datos solicitado</h3>
 
 <p> {{solicitud.dataset.descripcion}}.</p>
 
 <p>La informacion solicitada debe contener datos entre las fechas  <b>{{solicitud.dataset.fecha_inicial}} </b> y <b>{{solicitud.dataset.fecha_final}}</b>. 
 
-<p>Los siguientes campos deben estar presentes: {{solicitud.dataset.campos}} </p>
+<p>Los siguientes campos deben estar presentes: 
+    <ul>
+ {% for campo in solicitud.dataset.campos %}
+    <li>{{campo}}</li>
+ {% endfor%}
 
+	</ul>
+</p>
+
+<h3>Formato</h3>
 
 <p>En virtud del principio de calidad de información, establecido en el <i>artículo 3 de la ley 1712 de 2014</i> le solicito que la información solicitada se entregue en un formato procesable y reutilizable, toda vez que dicha norma indica que la información debe ser "oportuna, objetiva, veraz, completa, reutilizable, procesable y estar disponible en formatos accesibles para los solicitantes e interesados en ella".</p>
 
 <p>Por tanto en lo posible y preferiblente el formato de los datos entregados deberia ser <i>CSV, TSV, SQl Dumps o similares</i>.</p>
 
+<h3>Principio de No discriminacion</h3>
+
 <p>Además de esto, me permito indicarle que el principio de no discriminación, consagrado en el <i>artículo 3 de la citada ley</i>, establece que los sujetos obligados deben entregar información "sin hacer distinciones arbitrarias y sin exigir expresión de causa o motivación para la solicitud". Adicionalmente, el <i>parágrafo del artículo 26</i> de dicha norma indica que "en ningún caso podrán ser rechazadas la petición por motivos de fundamentación inadecuada o incompleta</p>
 
-<p>{{solicitud.salvavidas_reserva}}</p>
-<p>{{solicitud.salvavidas_reserva_antiguedad}}</p>
+<p>{{solicitud.salvavidas_reserva | safe }}</p>
+<p>{{solicitud.salvavidas_reserva_antiguedad | safe }}</p>
 
-<p>Espero la respuesta a la presente solicitud, via correo a mi direccion ({{solicitud.solicitante.direccion}}) o via email ({{solicitud.solicitante.email}}). </p>
+<p>Espero la respuesta a la presente solicitud, via correo a mi direccion o via email ({{solicitud.solicitante.email}}). </p>
 
 <br>
 
@@ -46,7 +58,8 @@ ___________________
  {{solicitud.solicitante.nombre}} {{solicitud.solicitante.apellido1}}<br>
  {{solicitud.solicitante.tipo_identificacion}} {{solicitud.solicitante.identificacion}}<br>
  {{solicitud.solicitante.email}}<br>
- {{solicitud.solicitante.telefono}}
+ {{solicitud.solicitante.direccion}}<br>
+ Tel: {{solicitud.solicitante.telefono}}<br>
 </p>
 
 
