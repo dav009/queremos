@@ -1,38 +1,38 @@
 import codecs
+import yaml
 
 def base_answers():
   answers = {
-           "fecha": "",
-           "solicitante_nombre": "",
-           "solicitante_apellido1": "",
-           "solicitante_apellido2": "",
-           "solicitante_tipo_identificacion": "",
-           "solicitante_identificacion": "",
-           "solicitante_email": "",
-           "solicitante_telefono": "",
-           "solicitante_direccion": "",
+           "fecha": "octubre 15 2016",
+           "solicitante_nombre": "solicitante nombre",
+           "solicitante_apellido1": "apellido1 ",
+           "solicitante_apellido2": "apellido2",
+           "solicitante_tipo_identificacion": "identificacion",
+           "solicitante_identificacion": "c.c 123",
+           "solicitante_email": "solicitante@gmail.com",
+           "solicitante_telefono": "123",
+           "solicitante_direccion": "calle a # 23 -78, tulua",
 
-           "institucion_nombre": "",
-           "institucion_ciudad": "",
-           "institucion_direccion": "",
-           "institucion_telefono": "",
+           "institucion_nombre": "nombre institucion",
+           "institucion_ciudad": "Bogota",
+           "institucion_direccion": "calle institucion # AB",
+           "institucion_telefono": "456",
 
-           "funcionario_nombre": "",
-           "funcionario_apellido1": "",
-           "funcionario_apellido2": "",
-           "funcionario_cargo": "",
+           "funcionario_nombre": "funcionario nombre",
+           "funcionario_apellido1": "apellido1",
+           "funcionario_apellido2": "apellido2",
+           "funcionario_cargo": "cargo funcionario",
 
-            "dataset_descripcion": "",
-            "dataset_campos": ["", ""],
-            "dataset_fecha_inicial": "",
-            "dataset_fecha_final": "",
-            "dataset_formato": "",
+            "dataset_descripcion": "dataset de asistencia de congresistas a sesiones del senado",
+            "dataset_campos": ["nombre congresista", "fecha sesion", "firma asistencia"],
+            "dataset_fecha_inicial": "octubre 10",
+            "dataset_fecha_final": "noveimbre 20",
 
             "privacidad_vulnera_flag": "true/false",
             "privacidad_campos_vulnerables": ["", ""],
 
             "clasificacion_datos_flag": "true/false",
-            "clasificacion_antiguedad_mayor_a_30_anios_flag": "true/false",
+            "clasificacion_antiguedad_mayor_a_15_anios_flag": "true/false",
 
             "restriccion_datos_industriales_flag": "true/false",
             "restriccion_seguridad_nacional_flag": "true/false",
@@ -43,8 +43,10 @@ def base_answers():
 
 
 TEMPLATE_BASE = "templates/basico"
-SALVAVIDAS_FORMATO = "templates/salvavidas_formato"
-TEMPLATE_RECTIFICACION = ""
+
+def load_extras():
+    with open('extras.yaml') as f:
+        return yaml.load(f)
 
 
 def load_text(path):
@@ -55,17 +57,17 @@ def load_text(path):
 def format_text(text, fields):
     return text.format(**fields)
 
-def salvavidas_formato(formato_deseado):
-    return load_text(SALVAVIDAS_FORMATO).format(dataset_formato=formato_deseado)
-
 def generate_base_letter(answers):
     base_template_text = load_text(TEMPLATE_BASE)
 
-    salvavidas = {"salvavidas_reserva":"",
-                  "salvavidas_reserva_antiguedad":"",
-                  "salvavidas_procesable":"",
-                  "salvavidas_formato_deseable":"",
-                  "salvavidas_no_discriminacion":""}
+    if answers['clasificacion_datos_flag']:
+        salvavidas_reserva = "algo"
+    if answers['clasificacion_antiguedad_mayor_a_15_anios_flag']:
+        salvavidas_reserva_antiguedad = "algo"
+
+
+    salvavidas = {"salvavidas_reserva": salvavidas_reserva,
+                  "salvavidas_reserva_antiguedad": salvavidas_reserva_antiguedad}
 
     answers_con_salvavidas = dict()
     answers_con_salvavidas.update(answers)
@@ -82,5 +84,7 @@ def generate_reposicion(answers):
 def generate_letter(answers):
     pass
 
-print(generate_base_letter(base_answers()))
+def create_mock_letter():
+  return generate_base_letter(base_answers())
+
 
