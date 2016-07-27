@@ -43,8 +43,8 @@ def base_answers():
            },
 
            "clasificacion": {
-              "datos_flag": "true/false",
-              "antiguedad_mayor_a_15_anios_flag": "true/false"
+              "datos_flag": "",
+              "antiguedad_mayor_a_15_anios_flag": ""
            },
 
            "restriccion": {
@@ -57,17 +57,20 @@ def base_answers():
         }
   return answers
 
-
 def load_extras():
-    with open('extras.yaml') as f:
+    with open('templates/extras.yaml') as f:
         return yaml.load(f)
 
+SALVAVIDAS = load_extras()['salvavidas']
 
 def generate_base_letter(answers):
+    salvavidas_reserva = ""
+    salvavidas_reserva_antiguedad = ""
+
     if answers['clasificacion']['datos_flag']:
-        salvavidas_reserva = "algo"
+        salvavidas_reserva = SALVAVIDAS['reserva']
     if answers['clasificacion']['antiguedad_mayor_a_15_anios_flag']:
-        salvavidas_reserva_antiguedad = "algo"
+        salvavidas_reserva_antiguedad = SALVAVIDAS['reserva_expirada']
 
 
     salvavidas = {"salvavidas_reserva": salvavidas_reserva,
