@@ -80,7 +80,7 @@
 
                   <div class="form-group col-sm-2">
                     <label for="nombre">Tipo Identificacion</label>
-                    <select class="selectpicker">
+                    <select name="solicitante_tipo_id" class="selectpicker">
                       <option>CC</option>
                       <option>TI</option>
                       <option>Pasaporte</option>
@@ -259,18 +259,89 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.es.min.js"></script>
 
     <script type="text/javascript">
+
+      function getFormData($form){
+          var unindexed_array = $form.serializeArray();
+          var indexed_array = {};
+
+          $.map(unindexed_array, function(n, i){
+              indexed_array[n['name']] = n['value'];
+          });
+
+          return indexed_array;
+      }
+
       $('.input-daterange input').each(function() {
           $(this).datepicker("clearDates");
       });
 
       $( "form" ).submit(function( event ) {
-        console.log( $( this ).serializeArray() );
+
+        var current_date = new Date();
+        var strDate = current_date.getFullYear() + "/" + (current_date.getMonth()+1) + "/" + current_date.getDate();
+
+        var serialized_form =  getFormData($(this))
+        //console.log(serialized_form.solicitante_nombre)
+
+        var form_answers = {
+           "fecha": strDate,
+
+           "solicitante": {
+             "nombre": serialized_form.solicitante_nombre,
+             "apellido1": serialized_form.solicitante_apellido1,
+             "apellido2": serialized_form.solicitante_apellido2,
+             "tipo_identificacion": serialized_form.solicitante_tipo_id,
+             "identificacion": serialized_form.solicitante_identificacion,
+             "email":serialized_form.solicitante_email,
+             "telefono": serialized_form.solicitante_telefono,
+             "direccion": serialized_form.solicitante_direccion
+           },
+
+           "institucion": {
+             "nombre": serialized_form.entidad_nombre,
+             "ciudad": serialized_form.entidad_ciudad,
+             "direccion": serialized_form.entidad_direccion,
+             "telefono": serialized_form.entidad_telefono
+           },
+
+           "funcionario": {
+             "nombre": serialized_form.funcionario_nombre,
+             "apellido1": serialized_form.funcionario_apellido1,
+             "apellido2": serialized_form.funcionario_apellido2,
+             "cargo": serialized_form.funcionario_cargo
+           },    
+
+           "dataset": {
+             "descripcion": serialized_form.dataset_descripcion,
+             "campos": serialized_form.dataset_campos,
+             "fecha_inicial": "",
+             "fecha_final": ""
+           },
+
+           "privacidad": {
+            "privacidad_vulnera_flag": "",
+            "privacidad_campos_vulnerables": ["", ""]
+           },
+
+           "clasificacion": {
+              "datos_flag": serialized_form.clasificacion_datos_flag,
+              "antiguedad_mayor_a_15_anios_flag": serialized_form.clasificacion_antiguedad_mayor_a_15_anios_flag
+           },
+
+           "restriccion": {
+             "datos_industriales_flag": serialized_form.datos_industriales_flag,
+             "seguridad_nacional_flag": serialized_form.seguridad_nacional_flag,
+             "relaciones_internacionales_flag": "",
+             "investigaciones_en_curso_flag": serialized_form.investigaciones_en_curso_flag
+           }
+
+        }
+        
+        console.log(form_answers);
         event.preventDefault();
       });
 
-      $('button.btn-lg').on('click', function(e) {
-       /* On click implementation goes here */
-      });
+   
     </script>
  
   </body>
