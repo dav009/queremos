@@ -4,12 +4,12 @@
 		<div>
 
 
- <p>{{solicitud.institucion.ciudad}}, {{solicitud.fecha}}</p>
+ <p>{{solicitud.institucion.ciudad | title}}, {{solicitud.fecha}}</p>
 
 <p>
-	{{solicitud.funcionario.nombre}} {{solicitud.funcionario.apellido1}} {{solicitud.funcionario.apellido2}}<br>
-	{{solicitud.funcionario.cargo}}<br>
-	{{solicitud.institucion.nombre}}<br>
+	{{solicitud.funcionario.nombre  | title }} {{solicitud.funcionario.apellido1  | title }} {{solicitud.funcionario.apellido2  | title}}<br>
+	{{solicitud.funcionario.cargo  | title}}<br>
+	{{solicitud.institucion.nombre  | title}}<br>
 </p>
 
 <p><h2>Solicitud de información</h2></b>
@@ -23,14 +23,14 @@
 
 <p>La informacion solicitada debe contener datos entre las fechas  <b>{{solicitud.dataset.fecha_inicial}} </b> y <b>{{solicitud.dataset.fecha_final}}</b>. 
 
-<p>Los siguientes campos deben estar presentes: 
-    <ul>
- {% for campo in solicitud.dataset.campos %}
-    <li>{{campo}}</li>
- {% endfor%}
+<p>Los siguientes campos deben estar presentes:
 
-	</ul>
-</p>
+<ul>
+{% for campo in solicitud.dataset.campos %}
+ <li>{{campo | title}}</li>
+{% endfor %}
+
+</ul>
 
 <h3>Formato</h3>
 
@@ -55,7 +55,7 @@
 
 ___________________
 <p>
- {{solicitud.solicitante.nombre}} {{solicitud.solicitante.apellido1}}<br>
+ {{solicitud.solicitante.nombre  | title}} {{solicitud.solicitante.apellido1  | title}}<br>
  {{solicitud.solicitante.tipo_identificacion}} {{solicitud.solicitante.identificacion}}<br>
  {{solicitud.solicitante.email}}<br>
  {{solicitud.solicitante.direccion}}<br>

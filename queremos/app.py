@@ -55,7 +55,7 @@ def generar_solicitud():
 
            "dataset": {
              "descripcion": serialized_form['dataset_descripcion'],
-             "campos": serialized_form['dataset_campos'],
+             "campos": [c.strip() for c in serialized_form['dataset_campos'].split(",")],
              "fecha_inicial": "",
              "fecha_final": ""
            },
