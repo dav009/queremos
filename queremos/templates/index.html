@@ -87,8 +87,8 @@
                     </select>
                   </div>
                   <div class="form-group col-sm-4">
-                    <label for="nombre">Identificacion</label>
-                    <input type="nombre" class="form-control" id="solicitante_identificacion">
+                    <label for="identificacion">Identificacion</label>
+                    <input type="text" class="form-control" id="solicitante_identificacion">
                   </div>
               </div>
             </div>
@@ -114,7 +114,7 @@
                           <input type="text" class="form-control input-sm" id="entidad_direccion">
                       </div>
                       <div class="form-group">
-                          <label for="entidad_Telefono">Telefono</label>
+                          <label for="entidad_telefono">Telefono</label>
                           <input type="text" class="form-control input-sm" id="entidad_telefono">
                       </div>
                  </div>   
@@ -133,15 +133,15 @@
                       <input type="text" class="form-control input-sm" id="funcionario_nombre">
                   </div>
                   <div class="form-group">
-                      <label for="funcionario_ciudad">Apellido 1</label>
+                      <label for="funcionario_ap1">Apellido 1</label>
                       <input type="text" class="form-control input-sm" id="funcionario_ap1">
                   </div>
                   <div class="form-group">
-                      <label for="entidad_direccion">Apellido 2</label>
+                      <label for="funcionario_ap2">Apellido 2</label>
                       <input type="text" class="form-control input-sm" id="funcionario_ap2">
                   </div>
                   <div class="form-group">
-                      <label for="entidad_Telefono">Cargo(i.e: Rector)</label>
+                      <label for="funcionario_cargo">Cargo(i.e: Rector)</label>
                       <input type="text" class="form-control input-sm" id="funcionario_cargo">
                   </div>
               </div>
@@ -155,14 +155,14 @@
                 <div class="panel-heading">Informacion sobre el dataset</div>
                 <div class="panel-body">
                   <div class="form-group">
-                        <label for="funcionario_nombre">
+                        <label for="dataset_descripcion">
                           Descripcion de los datos solicitados(i.e: Dataset que contenga informacion sobre la asistencia de senadores a las plenarias)
                         </label>
                         <textarea class="form-control" rows="5" id="dataset_descripcion"></textarea>
                     
                   </div>
                   <div class="form-group">
-                        <label for="funcionario_ciudad">
+                        <label for="dataset_campos">
                           Campos que espera encontrar en el dataset(i.e: Nombre Senador, CC Senador, Fecha de Ingreso al senado...)
                         </label>
                         <textarea class="form-control" rows="3" id="dataset_campos"></textarea>
@@ -185,13 +185,13 @@
                 <div class="panel-body">
                   <div class="form-group">
                       <label>
-                        <input type="checkbox" id="dataset_descripcion">
+                        <input type="checkbox" id="clasificacion_datos_flag">
                         Son los datos que solicita Clasificados? (Informacion sensible protegida por la ley ) 
                       </label>
                   </div>
                   <div class="form-group">
                       <label>
-                        <input type="checkbox" id="dataset_descripcion">
+                        <input type="checkbox" id="clasificacion_antiguedad_mayor_a_15_anios_flag">
                         Son datos clasificados con mas de 15 años de antiguedad?
                       </label>     
                   </div>
@@ -207,19 +207,19 @@
                 <div class="panel-body">
                   <div class="form-group">
                       <label>
-                        <input type="checkbox" id="dataset_descripcion">
+                        <input type="checkbox" id="datos_industriales_flag">
                         Son datos que podrian considerarse secretos industriales?
                       </label>
                   </div>
                     <div class="form-group">
                       <label>
-                        <input type="checkbox" id="dataset_descripcion">
+                        <input type="checkbox" id="seguridad_nacional_flag">
                         Son datos  que podrian afectar la seguridad nacional?
                       </label>                
                     </div>
                     <div class="form-group">
                       <label>
-                        <input type="checkbox" id="dataset_descripcion">
+                        <input type="checkbox" id="investigaciones_en_curso_flag">
                         Son datos generados apartir de una investigacion judicial aun en curso?
                       </label>
                     </div>
