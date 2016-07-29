@@ -3,6 +3,7 @@ from flask import current_app, Flask, request, Response, render_template, Markup
 import mimerender
 from weasyprint import HTML, CSS
 import json
+import time
 
 mimerender.register_mime('pdf', ('application/pdf',))
 mimerender = mimerender.FlaskMimeRender(global_charset='UTF-8')
@@ -23,68 +24,62 @@ def generar_solicitud():
     if "json" in request.content_type:
         answers = request.json
     elif request.form:
-        try:
-            serialized_form = request.form
-            print(list(serialized_form.keys()))
-            
-            answers = {
-               "fecha": "today",
+        serialized_form = request.form
+        answers = {
+           "fecha": time.strftime("%d/%m/%Y"),
 
-               "solicitante": {
-                 "nombre": serialized_form['solicitante_nombre'],
-                 "apellido1": serialized_form['solicitante_apellido1'],
-                 "apellido2": serialized_form['solicitante_apellido2'],
-                 "tipo_identificacion": serialized_form['solicitante_tipo_id'],
-                 "identificacion": serialized_form['solicitante_identificacion'],
-                 "email":serialized_form['solicitante_email'],
-                 "telefono": serialized_form['solicitante_telefono'],
-                 "direccion": serialized_form['solicitante_direccion']
-               },
+           "solicitante": {
+             "nombre": serialized_form['solicitante_nombre'],
+             "apellido1": serialized_form['solicitante_apellido1'],
+             "apellido2": serialized_form['solicitante_apellido2'],
+             "tipo_identificacion": serialized_form['solicitante_tipo_id'],
+             "identificacion": serialized_form['solicitante_identificacion'],
+             "email":serialized_form['solicitante_email'],
+             "telefono": serialized_form['solicitante_telefono'],
+             "direccion": serialized_form['solicitante_direccion']
+           },
 
-               "institucion": {
-                 "nombre": serialized_form['entidad_nombre'],
-                 "ciudad": serialized_form['entidad_ciudad'],
-                 "direccion": serialized_form['entidad_direccion'],
-                 "telefono": serialized_form['entidad_telefono']
-               },
+           "institucion": {
+             "nombre": serialized_form['entidad_nombre'],
+             "ciudad": serialized_form['entidad_ciudad'],
+             "direccion": serialized_form['entidad_direccion'],
+             "telefono": serialized_form['entidad_telefono']
+           },
 
-               "funcionario": {
-                 "nombre": serialized_form['funcionario_nombre'],
-                 "apellido1": serialized_form['funcionario_apellido1'],
-                 "apellido2": serialized_form['funcionario_apellido2'],
-                 "cargo": serialized_form['funcionario_cargo']
-               },    
+           "funcionario": {
+             "nombre": serialized_form['funcionario_nombre'],
+             "apellido1": serialized_form['funcionario_apellido1'],
+             "apellido2": serialized_form['funcionario_apellido2'],
+             "cargo": serialized_form['funcionario_cargo']
+           },    
 
-               "dataset": {
-                 "descripcion": serialized_form['dataset_descripcion'],
-                 "campos": serialized_form['dataset_campos'],
-                 "fecha_inicial": "",
-                 "fecha_final": ""
-               },
+           "dataset": {
+             "descripcion": serialized_form['dataset_descripcion'],
+             "campos": serialized_form['dataset_campos'],
+             "fecha_inicial": "",
+             "fecha_final": ""
+           },
 
-               "privacidad": {
-                "privacidad_vulnera_flag": "",
-                "privacidad_campos_vulnerables": ["", ""]
-               },
+           "privacidad": {
+            "privacidad_vulnera_flag": "",
+            "privacidad_campos_vulnerables": ["", ""]
+           },
 
-               "clasificacion": {
-                  "datos_flag":  'clasificacion_datos_flag' in serialized_form,
-                  "antiguedad_mayor_a_15_anios_flag":  'clasificacion_antiguedad_mayor_a_15_anios_flag' in serialized_form
-               },
+           "clasificacion": {
+              "datos_flag":  'clasificacion_datos_flag' in serialized_form,
+              "antiguedad_mayor_a_15_anios_flag":  'clasificacion_antiguedad_mayor_a_15_anios_flag' in serialized_form
+           },
 
-               "restriccion": {
-                 "datos_industriales_flag":  'datos_industriales_flag' in serialized_form,
-                 "seguridad_nacional_flag":  'seguridad_nacional_flag' in serialized_form,
-                 "relaciones_internacionales_flag": "",
-                 "investigaciones_en_curso_flag":  'investigaciones_en_curso_flag' in serialized_form
-               }
+           "restriccion": {
+             "datos_industriales_flag":  'datos_industriales_flag' in serialized_form,
+             "seguridad_nacional_flag":  'seguridad_nacional_flag' in serialized_form,
+             "relaciones_internacionales_flag": "",
+             "investigaciones_en_curso_flag":  'investigaciones_en_curso_flag' in serialized_form
+           }
 
-            }
-        except Exception as e:
-            print("AHHHHH")
-            print(e)
-    print("finished")
-    print(answers)
+        }
+
+
     html = render_template('solicitud.html', solicitud=generate_base_letter(answers))
     return { 'html': html }
 
