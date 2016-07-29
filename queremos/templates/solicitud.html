@@ -19,9 +19,18 @@
 
 <h3>Conjunto de datos solicitado</h3>
 
-<p> {{solicitud.dataset.descripcion}}.</p>
+<p> {{solicitud.dataset.descripcion}}</p>
+
+
+{% if solicitud.dataset.fecha_final!="" and solicitud.dataset.fecha_inicial!="" %}
 
 <p>La informacion solicitada debe contener datos entre las fechas  <b>{{solicitud.dataset.fecha_inicial}} </b> y <b>{{solicitud.dataset.fecha_final}}</b>. 
+
+{% else %}
+
+<p> Por favor suministrar tantos datos historicos sean posibles (años de registros) </p>
+
+{% endif %}
 
 <p>Los siguientes campos deben estar presentes:
 
