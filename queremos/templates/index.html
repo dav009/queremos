@@ -39,6 +39,7 @@
        </p>
    </div>
    <div class="container-fluid">
+    <form id="xyz" class="form-horizontal well" data-async="" data-target="#outcomeFormDialog" method="POST">
 
       <div class="row">
         <div class="col-sm-12">
@@ -49,32 +50,32 @@
               <div class="panel-body">
                   <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control input-sm" id="solicitante_nombre">
+                    <input type="text" class="form-control input-sm" name="solicitante_nombre">
                   </div>
               
                   <div class="form-group">
                       <label for="1apellido">1er apellido</label>
-                      <input type="text" class="form-control input-sm" id="solicitante_apellido1">
+                      <input type="text" class="form-control input-sm" name="solicitante_apellido1">
                   </div>
                   
                   <div class="form-group">
                       <label for="2apellido">2do apellido</label>
-                      <input type="text" class="form-control input-sm" id="solicitante_apellido2">
+                      <input type="text" class="form-control input-sm" name="solicitante_apellido2">
                   </div>
 
                   <div class="form-group">
                       <label for="email">email</label>
-                      <input type="text" class="form-control input-sm" id="solicitante_email">
+                      <input type="text" class="form-control input-sm" name="solicitante_email">
                   </div>
 
                   <div class="form-group">
                       <label for="telefono">Telefono</label>
-                      <input type="text" class="form-control input-sm" id="solicitante_telefono">
+                      <input type="text" class="form-control input-sm" name="solicitante_telefono">
                   </div>
 
                   <div class="form-group">
                       <label for="direccion">Direccion</label>
-                      <input type="text" class="form-control input-sm" id="solicitante_direccion">
+                      <input type="text" class="form-control input-sm" name="solicitante_direccion">
                   </div>
 
                   <div class="form-group col-sm-2">
@@ -88,7 +89,7 @@
                   </div>
                   <div class="form-group col-sm-4">
                     <label for="identificacion">Identificacion</label>
-                    <input type="text" class="form-control" id="solicitante_identificacion">
+                    <input type="text" class="form-control" name="solicitante_identificacion">
                   </div>
               </div>
             </div>
@@ -103,19 +104,19 @@
                   <div class="panel-body">
                     <div class="form-group">
                           <label for="entidad_nombre">Nombre</label>
-                          <input type="text" class="form-control input-sm" id="entidad_nombre">
+                          <input type="text" class="form-control input-sm" name="entidad_nombre">
                       </div>
                       <div class="form-group">
                           <label for="entidad_ciudad">Ciudad</label>
-                          <input type="text" class="form-control input-sm" id="entidad_ciudad">
+                          <input type="text" class="form-control input-sm" name="entidad_ciudad">
                       </div>
                       <div class="form-group">
                           <label for="entidad_direccion">Direccion</label>
-                          <input type="text" class="form-control input-sm" id="entidad_direccion">
+                          <input type="text" class="form-control input-sm" name="entidad_direccion">
                       </div>
                       <div class="form-group">
                           <label for="entidad_telefono">Telefono</label>
-                          <input type="text" class="form-control input-sm" id="entidad_telefono">
+                          <input type="text" class="form-control input-sm" name="entidad_telefono">
                       </div>
                  </div>   
               </div>
@@ -130,19 +131,19 @@
               <div class="panel-body">
                 <div class="form-group">
                       <label for="funcionario_nombre">Nombre</label>
-                      <input type="text" class="form-control input-sm" id="funcionario_nombre">
+                      <input type="text" class="form-control input-sm" name="funcionario_nombre">
                   </div>
                   <div class="form-group">
                       <label for="funcionario_ap1">Apellido 1</label>
-                      <input type="text" class="form-control input-sm" id="funcionario_ap1">
+                      <input type="text" class="form-control input-sm" name="funcionario_apellido1">
                   </div>
                   <div class="form-group">
                       <label for="funcionario_ap2">Apellido 2</label>
-                      <input type="text" class="form-control input-sm" id="funcionario_ap2">
+                      <input type="text" class="form-control input-sm" name="funcionario_apellido2">
                   </div>
                   <div class="form-group">
                       <label for="funcionario_cargo">Cargo(i.e: Rector)</label>
-                      <input type="text" class="form-control input-sm" id="funcionario_cargo">
+                      <input type="text" class="form-control input-sm" name="funcionario_cargo">
                   </div>
               </div>
           </div>
@@ -158,14 +159,14 @@
                         <label for="dataset_descripcion">
                           Descripcion de los datos solicitados(i.e: Dataset que contenga informacion sobre la asistencia de senadores a las plenarias)
                         </label>
-                        <textarea class="form-control" rows="5" id="dataset_descripcion"></textarea>
+                        <textarea class="form-control" rows="5" name="dataset_descripcion"></textarea>
                     
                   </div>
                   <div class="form-group">
                         <label for="dataset_campos">
                           Campos que espera encontrar en el dataset(i.e: Nombre Senador, CC Senador, Fecha de Ingreso al senado...)
                         </label>
-                        <textarea class="form-control" rows="3" id="dataset_campos"></textarea>
+                        <textarea class="form-control" rows="3" name="dataset_campos"></textarea>
                   </div>
                   <div class="input-group input-daterange">
                       <input type="text" class="form-control" value="2012-04-05">
@@ -185,13 +186,13 @@
                 <div class="panel-body">
                   <div class="form-group">
                       <label>
-                        <input type="checkbox" id="clasificacion_datos_flag">
+                        <input type="checkbox" name="clasificacion_datos_flag">
                         Son los datos que solicita Clasificados? (Informacion sensible protegida por la ley ) 
                       </label>
                   </div>
                   <div class="form-group">
                       <label>
-                        <input type="checkbox" id="clasificacion_antiguedad_mayor_a_15_anios_flag">
+                        <input type="checkbox" name="clasificacion_antiguedad_mayor_a_15_anios_flag">
                         Son datos clasificados con mas de 15 años de antiguedad?
                       </label>     
                   </div>
@@ -207,19 +208,19 @@
                 <div class="panel-body">
                   <div class="form-group">
                       <label>
-                        <input type="checkbox" id="datos_industriales_flag">
+                        <input type="checkbox" name="datos_industriales_flag">
                         Son datos que podrian considerarse secretos industriales?
                       </label>
                   </div>
                     <div class="form-group">
                       <label>
-                        <input type="checkbox" id="seguridad_nacional_flag">
+                        <input type="checkbox" name="seguridad_nacional_flag">
                         Son datos  que podrian afectar la seguridad nacional?
                       </label>                
                     </div>
                     <div class="form-group">
                       <label>
-                        <input type="checkbox" id="investigaciones_en_curso_flag">
+                        <input type="checkbox" name="investigaciones_en_curso_flag">
                         Son datos generados apartir de una investigacion judicial aun en curso?
                       </label>
                     </div>
@@ -229,7 +230,7 @@
       </div>
       <div class="row">
           <div class="col-sm-12">
-            <button type="button"  style="display: block; width: 100%;" class="btn btn-primary">
+            <button type="submit"  style="display: block; width: 100%;" class="btn btn-primary">
               Generar Solicitud
             </button>
           </div>
@@ -238,6 +239,7 @@
       <footer>
         <p>www.datosabiertos.co</p>
       </footer>
+    </form>  
     </div><!-- /.container -->
 
  
@@ -259,6 +261,15 @@
     <script type="text/javascript">
       $('.input-daterange input').each(function() {
           $(this).datepicker("clearDates");
+      });
+
+      $( "form" ).submit(function( event ) {
+        console.log( $( this ).serializeArray() );
+        event.preventDefault();
+      });
+
+      $('button.btn-lg').on('click', function(e) {
+       /* On click implementation goes here */
       });
     </script>
  
