@@ -19,6 +19,7 @@ def render_pdf(html):
     return pdf
 
 def form_to_json_request(form_answers):
+    print(list(form_answers.keys()))
     answers = {
            "fecha": time.strftime("%d/%m/%Y"),
 
@@ -50,8 +51,8 @@ def form_to_json_request(form_answers):
            "dataset": {
              "descripcion": form_answers['dataset_descripcion'],
              "campos": [c.strip() for c in form_answers['dataset_campos'].split(",")],
-             "fecha_inicial": "",
-             "fecha_final": ""
+             "fecha_inicial": form_answers['fecha_inicial'],
+             "fecha_final":  form_answers['fecha_final']
            },
 
            "privacidad": {

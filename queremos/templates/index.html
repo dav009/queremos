@@ -169,9 +169,9 @@
                         <textarea class="form-control" rows="3" name="dataset_campos" placeholder="Nombre Senador, CC Senador, Fecha de Ingreso al senado..."></textarea>
                   </div>
                   <div class="input-group input-daterange">
-                      <input type="text" class="form-control" value="2012-04-05">
+                      <input name="fecha_inicial" type="text" class="form-control" value="2010-01-01">
                       <span class="input-group-addon">to</span>
-                      <input type="text" class="form-control" value="2012-04-19">
+                      <input name="fecha_final" type="text" class="form-control" value="2016-01-01">
                   </div>
                 </div>
             </div>
@@ -252,21 +252,8 @@
         <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.js"></script>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.es.min.js"></script>
 
-    <script type="text/javascript">
-
-
-      $('.input-daterange input').each(function() {
-          $(this).datepicker("clearDates");
-      });
-
-    
-    </script>
  
   </body>
 </html>
