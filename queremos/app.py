@@ -1,9 +1,12 @@
-from queremos import create_mock_letter, generate_base_letter
-from flask import current_app, Flask, request, Response, render_template, Markup
-import mimerender
-from weasyprint import HTML, CSS
 import json
 import time
+
+from flask import current_app, Flask, request, Response, render_template, Markup
+from weasyprint import HTML, CSS
+import mimerender
+
+from queremos import generate_base_letter
+
 
 mimerender.register_mime('pdf', ('application/pdf',))
 mimerender = mimerender.FlaskMimeRender(global_charset='UTF-8')
@@ -15,47 +18,38 @@ def render_pdf(html):
     pdf = HTML(string=html).write_pdf(stylesheets=page_settings)
     return pdf
 
-
-
-@app.route('/generar_solicitar', methods=['POST'])
-@mimerender(default='pdf', pdf=render_pdf)
-def generar_solicitud():
-    answers = {}
-    if "json" in request.content_type:
-        answers = request.json
-    elif request.form:
-        serialized_form = request.form
-        answers = {
+def form_to_json_request(form_answers):
+    answers = {
            "fecha": time.strftime("%d/%m/%Y"),
 
            "solicitante": {
-             "nombre": serialized_form['solicitante_nombre'],
-             "apellido1": serialized_form['solicitante_apellido1'],
-             "apellido2": serialized_form['solicitante_apellido2'],
-             "tipo_identificacion": serialized_form['solicitante_tipo_id'],
-             "identificacion": serialized_form['solicitante_identificacion'],
-             "email":serialized_form['solicitante_email'],
-             "telefono": serialized_form['solicitante_telefono'],
-             "direccion": serialized_form['solicitante_direccion']
+             "nombre": form_answers['solicitante_nombre'],
+             "apellido1": form_answers['solicitante_apellido1'],
+             "apellido2": form_answers['solicitante_apellido2'],
+             "tipo_identificacion": form_answers['solicitante_tipo_id'],
+             "identificacion": form_answers['solicitante_identificacion'],
+             "email":form_answers['solicitante_email'],
+             "telefono": form_answers['solicitante_telefono'],
+             "direccion": form_answers['solicitante_direccion']
            },
 
            "institucion": {
-             "nombre": serialized_form['entidad_nombre'],
-             "ciudad": serialized_form['entidad_ciudad'],
-             "direccion": serialized_form['entidad_direccion'],
-             "telefono": serialized_form['entidad_telefono']
+             "nombre": form_answers['entidad_nombre'],
+             "ciudad": form_answers['entidad_ciudad'],
+             "direccion": form_answers['entidad_direccion'],
+             "telefono": form_answers['entidad_telefono']
            },
 
            "funcionario": {
-             "nombre": serialized_form['funcionario_nombre'],
-             "apellido1": serialized_form['funcionario_apellido1'],
-             "apellido2": serialized_form['funcionario_apellido2'],
-             "cargo": serialized_form['funcionario_cargo']
+             "nombre": form_answers['funcionario_nombre'],
+             "apellido1": form_answers['funcionario_apellido1'],
+             "apellido2": form_answers['funcionario_apellido2'],
+             "cargo": form_answers['funcionario_cargo']
            },    
 
            "dataset": {
-             "descripcion": serialized_form['dataset_descripcion'],
-             "campos": [c.strip() for c in serialized_form['dataset_campos'].split(",")],
+             "descripcion": form_answers['dataset_descripcion'],
+             "campos": [c.strip() for c in form_answers['dataset_campos'].split(",")],
              "fecha_inicial": "",
              "fecha_final": ""
            },
@@ -66,19 +60,30 @@ def generar_solicitud():
            },
 
            "clasificacion": {
-              "datos_flag":  'clasificacion_datos_flag' in serialized_form,
-              "antiguedad_mayor_a_15_anios_flag":  'clasificacion_antiguedad_mayor_a_15_anios_flag' in serialized_form
+              "datos_flag":  'clasificacion_datos_flag' in form_answers,
+              "antiguedad_mayor_a_15_anios_flag":  'clasificacion_antiguedad_mayor_a_15_anios_flag' in form_answers
            },
 
            "restriccion": {
-             "datos_industriales_flag":  'datos_industriales_flag' in serialized_form,
-             "seguridad_nacional_flag":  'seguridad_nacional_flag' in serialized_form,
+             "datos_industriales_flag":  'datos_industriales_flag' in form_answers,
+             "seguridad_nacional_flag":  'seguridad_nacional_flag' in form_answers,
              "relaciones_internacionales_flag": "",
-             "investigaciones_en_curso_flag":  'investigaciones_en_curso_flag' in serialized_form
+             "investigaciones_en_curso_flag":  'investigaciones_en_curso_flag' in form_answers
            }
 
         }
+    return answers
 
+
+
+@app.route('/generar_solicitar', methods=['POST'])
+@mimerender(default='pdf', pdf=render_pdf)
+def generar_solicitud():
+    answers = {}
+    if "json" in request.content_type:
+        answers = request.json
+    elif request.form:
+        answers = form_to_json_request(request.form)
 
     html = render_template('solicitud.html', solicitud=generate_base_letter(answers))
     return { 'html': html }
