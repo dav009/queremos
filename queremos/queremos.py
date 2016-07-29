@@ -25,5 +25,3 @@ def generate_base_letter(answers):
     answers_con_salvavidas.update(salvavidas)
     return answers_con_salvavidas
 
-
-
