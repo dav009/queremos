@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,14 +16,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-  1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 
-       <!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.css">
 
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,224 +34,207 @@
 
    <div class="container-fluid">
        <h1>Generador Carta de Solicitud de Datos Abiertos</h1>
-     <p class="lead">Llene el siguiente formulario para generar la carta que debe enviar a la institucion publica para solicitar datos abiertos</p>
+       <p class="lead">
+          Llene el siguiente formulario para generar la carta que debe enviar a la institucion publica para solicitar datos abiertos
+       </p>
    </div>
-    <div class="container-fluid">
-
-
-
-     
-
+   <div class="container-fluid">
 
       <div class="row">
         <div class="col-sm-12">
-      <div class="panel panel-primary">
-          <div class="panel-heading">Solicitante</div>
-          <div class="panel-body">
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control input-sm" id="solicitante_nombre">
-            </div>
-            <div class="form-group">
-                <label for="1apellido">1er apellido</label>
-                <input type="text" class="form-control input-sm" id="solicitante_apellido1">
-            </div>
-            <div class="form-group">
-                <label for="2apellido">2do apellido</label>
-                <input type="text" class="form-control input-sm" id="solicitante_apellido2">
-            </div>
-
-             <div class="form-group">
-                <label for="email">email</label>
-                <input type="text" class="form-control input-sm" id="solicitante_email">
-            </div>
-
-             <div class="form-group">
-                <label for="telefono">Telefono</label>
-                <input type="text" class="form-control input-sm" id="solicitante_telefono">
-            </div>
-
-             <div class="form-group">
-                <label for="direccion">Direccion</label>
-                <input type="text" class="form-control input-sm" id="solicitante_direccion">
-            </div>
-
-             <div class="form-group col-sm-2">
-                <label for="nombre">Tipo Identificacion</label>
-                <select class="selectpicker">
-                  <option>CC</option>
-                  <option>TI</option>
-                  <option>Pasaporte</option>
-                  <option>NUIP</option>
-                </select>
-            </div>
-             <div class="form-group col-sm-4">
-                <label for="nombre">Identificacion</label>
-                <input type="nombre" class="form-control" id="solicitante_identificacion">
-            </div>
-          </div>
-
-
-      </div>
-        </div>
-
-      </div>
-
-
-   <div class="row">
-        <div class="col-sm-12">
-      <div class="panel panel-primary">
-          <div class="panel-heading">Informacion sobre la Entidad</div>
-          <div class="panel-body">
-            <div class="form-group">
-                  <label for="entidad_nombre">Nombre</label>
-                  <input type="text" class="form-control input-sm" id="entidad_nombre">
-              </div>
-              <div class="form-group">
-                  <label for="entidad_ciudad">Ciudad</label>
-                  <input type="text" class="form-control input-sm" id="entidad_ciudad">
-              </div>
-              <div class="form-group">
-                  <label for="entidad_direccion">Direccion</label>
-                  <input type="text" class="form-control input-sm" id="entidad_direccion">
-              </div>
-              <div class="form-group">
-                  <label for="entidad_Telefono">Telefono</label>
-                  <input type="text" class="form-control input-sm" id="entidad_telefono">
-              </div>
-         </div>   
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-        <div class="col-sm-12">
-
-      <div class="panel panel-primary">
-          <div class="panel-heading">Informacion sobre el funcionario al que dirige la peticion</div>
-          <div class="panel-body">
-            <div class="form-group">
-                  <label for="funcionario_nombre">Nombre</label>
-                  <input type="text" class="form-control input-sm" id="funcionario_nombre">
-              </div>
-              <div class="form-group">
-                  <label for="funcionario_ciudad">Apellido 1</label>
-                  <input type="text" class="form-control input-sm" id="funcionario_ap1">
-              </div>
-              <div class="form-group">
-                  <label for="entidad_direccion">Apellido 2</label>
-                  <input type="text" class="form-control input-sm" id="funcionario_ap2">
-              </div>
-              <div class="form-group">
-                  <label for="entidad_Telefono">Cargo(i.e: Rector)</label>
-                  <input type="text" class="form-control input-sm" id="funcionario_cargo">
-              </div>
-          </div>
-      </div>
-    </div>
-  </div>
-
-<div class="row">
-        <div class="col-sm-12">
-
-      <div class="panel panel-primary">
-          <div class="panel-heading">Informacion sobre el dataset</div>
-          <div class="panel-body">
-            <div class="form-group">
-                  <label for="funcionario_nombre">Descripcion de los datos solicitados(i.e: Dataset que contenga informacion sobre la asistencia de senadores a las plenarias)</label>
-                  <textarea class="form-control" rows="5" id="dataset_descripcion"></textarea>
+            <div class="panel panel-primary">
               
-              </div>
-              <div class="form-group">
-                  <label for="funcionario_ciudad">Campos que espera encontrar en el dataset(i.e: Nombre Senador, CC Senador, Fecha de Ingreso al senado...)</label>
-                  <textarea class="form-control" rows="3" id="dataset_campos"></textarea>
+              <div class="panel-heading">Solicitante</div>
+              
+              <div class="panel-body">
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control input-sm" id="solicitante_nombre">
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="1apellido">1er apellido</label>
+                      <input type="text" class="form-control input-sm" id="solicitante_apellido1">
+                  </div>
                   
+                  <div class="form-group">
+                      <label for="2apellido">2do apellido</label>
+                      <input type="text" class="form-control input-sm" id="solicitante_apellido2">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="email">email</label>
+                      <input type="text" class="form-control input-sm" id="solicitante_email">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="telefono">Telefono</label>
+                      <input type="text" class="form-control input-sm" id="solicitante_telefono">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="direccion">Direccion</label>
+                      <input type="text" class="form-control input-sm" id="solicitante_direccion">
+                  </div>
+
+                  <div class="form-group col-sm-2">
+                    <label for="nombre">Tipo Identificacion</label>
+                    <select class="selectpicker">
+                      <option>CC</option>
+                      <option>TI</option>
+                      <option>Pasaporte</option>
+                      <option>NUIP</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-4">
+                    <label for="nombre">Identificacion</label>
+                    <input type="nombre" class="form-control" id="solicitante_identificacion">
+                  </div>
               </div>
-              <div class="input-group input-daterange">
-                <input type="text" class="form-control" value="2012-04-05">
-                <span class="input-group-addon">to</span>
-                <input type="text" class="form-control" value="2012-04-19">
             </div>
+        </div>
+      </div>
 
 
-      
+      <div class="row">
+          <div class="col-sm-12">
+              <div class="panel panel-primary">
+                  <div class="panel-heading">Informacion sobre la Entidad</div>
+                  <div class="panel-body">
+                    <div class="form-group">
+                          <label for="entidad_nombre">Nombre</label>
+                          <input type="text" class="form-control input-sm" id="entidad_nombre">
+                      </div>
+                      <div class="form-group">
+                          <label for="entidad_ciudad">Ciudad</label>
+                          <input type="text" class="form-control input-sm" id="entidad_ciudad">
+                      </div>
+                      <div class="form-group">
+                          <label for="entidad_direccion">Direccion</label>
+                          <input type="text" class="form-control input-sm" id="entidad_direccion">
+                      </div>
+                      <div class="form-group">
+                          <label for="entidad_Telefono">Telefono</label>
+                          <input type="text" class="form-control input-sm" id="entidad_telefono">
+                      </div>
+                 </div>   
+              </div>
           </div>
       </div>
-    </div>
-  </div>
 
+      <div class="row">
+            <div class="col-sm-12">
 
-<div class="row">
+          <div class="panel panel-primary">
+              <div class="panel-heading">Informacion sobre el funcionario al que dirige la peticion</div>
+              <div class="panel-body">
+                <div class="form-group">
+                      <label for="funcionario_nombre">Nombre</label>
+                      <input type="text" class="form-control input-sm" id="funcionario_nombre">
+                  </div>
+                  <div class="form-group">
+                      <label for="funcionario_ciudad">Apellido 1</label>
+                      <input type="text" class="form-control input-sm" id="funcionario_ap1">
+                  </div>
+                  <div class="form-group">
+                      <label for="entidad_direccion">Apellido 2</label>
+                      <input type="text" class="form-control input-sm" id="funcionario_ap2">
+                  </div>
+                  <div class="form-group">
+                      <label for="entidad_Telefono">Cargo(i.e: Rector)</label>
+                      <input type="text" class="form-control input-sm" id="funcionario_cargo">
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-sm-12">
-      <div class="panel panel-primary">
-          <div class="panel-heading">Clasificacion</div>
-          <div class="panel-body">
-            <div class="form-group">
-                <label>
-                  <input type="checkbox" id="dataset_descripcion">
-                  Son los datos que solicita Clasificados? (Informacion sensible protegida por la ley ) 
-                </label>
-              </div>
-              <div class="form-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Informacion sobre el dataset</div>
+                <div class="panel-body">
+                  <div class="form-group">
+                        <label for="funcionario_nombre">
+                          Descripcion de los datos solicitados(i.e: Dataset que contenga informacion sobre la asistencia de senadores a las plenarias)
+                        </label>
+                        <textarea class="form-control" rows="5" id="dataset_descripcion"></textarea>
+                    
+                  </div>
+                  <div class="form-group">
+                        <label for="funcionario_ciudad">
+                          Campos que espera encontrar en el dataset(i.e: Nombre Senador, CC Senador, Fecha de Ingreso al senado...)
+                        </label>
+                        <textarea class="form-control" rows="3" id="dataset_campos"></textarea>
+                  </div>
+                  <div class="input-group input-daterange">
+                      <input type="text" class="form-control" value="2012-04-05">
+                      <span class="input-group-addon">to</span>
+                      <input type="text" class="form-control" value="2012-04-19">
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
 
-                <label>
-                  <input type="checkbox" id="dataset_descripcion">
-                  Son datos clasificados con mas de 15 años de antiguedad?
-                </label>
-                 
-              </div>
-          
-      
+
+      <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Clasificacion</div>
+                <div class="panel-body">
+                  <div class="form-group">
+                      <label>
+                        <input type="checkbox" id="dataset_descripcion">
+                        Son los datos que solicita Clasificados? (Informacion sensible protegida por la ley ) 
+                      </label>
+                  </div>
+                  <div class="form-group">
+                      <label>
+                        <input type="checkbox" id="dataset_descripcion">
+                        Son datos clasificados con mas de 15 años de antiguedad?
+                      </label>     
+                  </div>
+                </div>
+            </div>
           </div>
       </div>
-    </div>
-  </div>
 
-<div class="row">
+      <div class="row">
         <div class="col-sm-12">
-
-      <div class="panel panel-primary">
-          <div class="panel-heading">Otras Restricciones</div>
-          <div class="panel-body">
-            <div class="form-group">
-
-                <label>
-                  <input type="checkbox" id="dataset_descripcion">
-                  Son datos que podrian considerarse secretos industriales?
-                </label>
-               
-              </div>
-              <div class="form-group">
-                <label>
-                  <input type="checkbox" id="dataset_descripcion">
-                  Son datos  que podrian afectar la seguridad nacional?
-                </label>                
-              </div>
-              <div class="form-group">
-
-                <label>
-                  <input type="checkbox" id="dataset_descripcion">
-                  Son datos generados apartir de una investigacion judicial aun en curso?
-                </label>
-              
-              </div>
-
-           
-      
-          </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Otras Restricciones</div>
+                <div class="panel-body">
+                  <div class="form-group">
+                      <label>
+                        <input type="checkbox" id="dataset_descripcion">
+                        Son datos que podrian considerarse secretos industriales?
+                      </label>
+                  </div>
+                    <div class="form-group">
+                      <label>
+                        <input type="checkbox" id="dataset_descripcion">
+                        Son datos  que podrian afectar la seguridad nacional?
+                      </label>                
+                    </div>
+                    <div class="form-group">
+                      <label>
+                        <input type="checkbox" id="dataset_descripcion">
+                        Son datos generados apartir de una investigacion judicial aun en curso?
+                      </label>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-        <div class="col-sm-12">
-
-       <button type="button"  style="display: block; width: 100%;" class="btn btn-primary">Generar Solicitud</button>
-     </div>
-    </div>   
-
+      <div class="row">
+          <div class="col-sm-12">
+            <button type="button"  style="display: block; width: 100%;" class="btn btn-primary">
+              Generar Solicitud
+            </button>
+          </div>
+      </div>   
      <hr>
-
-
       <footer>
         <p>www.datosabiertos.co</p>
       </footer>
@@ -269,8 +250,6 @@
         <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-
-    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.js"></script>
 
