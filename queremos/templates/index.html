@@ -29,10 +29,19 @@
 
   <body>
 
-  
+   <div class="container-fluid">
+       <h1>Generador Carta de Solicitud de Datos Abiertos</h1>
+     <p class="lead">Llene el siguiente formulario para generar la carta que debe enviar a la institucion publica para solicitar datos abiertos</p>
+   </div>
+    <div class="container-fluid">
 
-    <div class="container">
 
+
+     
+
+
+      <div class="row">
+        <div class="col-sm-12">
       <div class="panel panel-primary">
           <div class="panel-heading">Solicitante</div>
           <div class="panel-body">
@@ -81,7 +90,13 @@
 
 
       </div>
+        </div>
 
+      </div>
+
+
+   <div class="row">
+        <div class="col-sm-12">
       <div class="panel panel-primary">
           <div class="panel-heading">Informacion sobre la Entidad</div>
           <div class="panel-body">
@@ -103,6 +118,11 @@
               </div>
          </div>   
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+        <div class="col-sm-12">
 
       <div class="panel panel-primary">
           <div class="panel-heading">Informacion sobre el funcionario al que dirige la peticion</div>
@@ -120,75 +140,121 @@
                   <input type="text" class="form-control input-sm" id="funcionario_ap2">
               </div>
               <div class="form-group">
-                  <label for="entidad_Telefono">Cargo</label>
+                  <label for="entidad_Telefono">Cargo(i.e: Rector)</label>
                   <input type="text" class="form-control input-sm" id="funcionario_cargo">
               </div>
           </div>
       </div>
+    </div>
+  </div>
+
+<div class="row">
+        <div class="col-sm-12">
 
       <div class="panel panel-primary">
           <div class="panel-heading">Informacion sobre el dataset</div>
           <div class="panel-body">
             <div class="form-group">
-                  <label for="funcionario_nombre">Descripcion</label>
-                  <input type="text" class="form-control input-sm" id="dataset_descripcion">
+                  <label for="funcionario_nombre">Descripcion de los datos solicitados(i.e: Dataset que contenga informacion sobre la asistencia de senadores a las plenarias)</label>
+                  <textarea class="form-control" rows="5" id="dataset_descripcion"></textarea>
+              
               </div>
               <div class="form-group">
-                  <label for="funcionario_ciudad">Campos</label>
-                  <input type="text" class="form-control input-sm" id="dataset_campos">
+                  <label for="funcionario_ciudad">Campos que espera encontrar en el dataset(i.e: Nombre Senador, CC Senador, Fecha de Ingreso al senado...)</label>
+                  <textarea class="form-control" rows="3" id="dataset_campos"></textarea>
+                  
               </div>
-              <div class="form-group">
-                  <label for="entidad_direccion">Fecha</label>
-                  <input type="text" class="form-control input-sm" id="funcionario_ap2">
-              </div>
+              <div class="input-group input-daterange">
+                <input type="text" class="form-control" value="2012-04-05">
+                <span class="input-group-addon">to</span>
+                <input type="text" class="form-control" value="2012-04-19">
+            </div>
+
+
       
           </div>
       </div>
+    </div>
+  </div>
 
 
+<div class="row">
+        <div class="col-sm-12">
       <div class="panel panel-primary">
           <div class="panel-heading">Clasificacion</div>
           <div class="panel-body">
             <div class="form-group">
-                  <label for="funcionario_nombre">Son datos Clasificados?</label>
-                  <input type="checkbox" class="form-control input-sm" id="dataset_descripcion">
+                <label>
+                  <input type="checkbox" id="dataset_descripcion">
+                  Son los datos que solicita Clasificados? (Informacion sensible protegida por la ley ) 
+                </label>
               </div>
               <div class="form-group">
-                  <label for="funcionario_ciudad">Son datos clasificados con mas de 15 años de antiguedad?</label>
-                  <input type="checkbox" class="form-control input-sm" id="dataset_campos">
+
+                <label>
+                  <input type="checkbox" id="dataset_descripcion">
+                  Son datos clasificados con mas de 15 años de antiguedad?
+                </label>
+                 
               </div>
           
       
           </div>
       </div>
+    </div>
+  </div>
+
+<div class="row">
+        <div class="col-sm-12">
 
       <div class="panel panel-primary">
           <div class="panel-heading">Otras Restricciones</div>
           <div class="panel-body">
             <div class="form-group">
-                  <label for="funcionario_nombre">Son datos que podrian considerarse secretos industriales?</label>
-                  <input type="checkbox" class="form-control input-sm" id="dataset_descripcion">
+
+                <label>
+                  <input type="checkbox" id="dataset_descripcion">
+                  Son datos que podrian considerarse secretos industriales?
+                </label>
+               
               </div>
               <div class="form-group">
-                  <label for="funcionario_ciudad">Son datos  que podrian afectar la seguridad nacional?</label>
-                  <input type="checkbox" class="form-control input-sm" id="dataset_campos">
+                <label>
+                  <input type="checkbox" id="dataset_descripcion">
+                  Son datos  que podrian afectar la seguridad nacional?
+                </label>                
               </div>
               <div class="form-group">
-                  <label for="entidad_direccion">Son datos generados apartir de una investigacion judicial aun en curso?</label>
-                  <input type="checkbox" class="form-control input-sm" id="funcionario_ap2">
+
+                <label>
+                  <input type="checkbox" id="dataset_descripcion">
+                  Son datos generados apartir de una investigacion judicial aun en curso?
+                </label>
+              
               </div>
 
-            <div class="form-group">
-              <input type="submit" value="Generar solicitud">  
-              </div>  
+           
       
           </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+        <div class="col-sm-12">
+
+       <button type="button"  style="display: block; width: 100%;" class="btn btn-primary">Generar Solicitud</button>
+     </div>
+    </div>   
+
+     <hr>
 
 
-
+      <footer>
+        <p>www.datosabiertos.co</p>
+      </footer>
     </div><!-- /.container -->
 
+ 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -197,6 +263,14 @@
 
         <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script src="js/bootstrap-datepicker.js"></script>
+
+    <script type="text/javascript">
+      $('.input-daterange input').each(function() {
+          $(this).datepicker("clearDates");
+      });
+    </script>
  
   </body>
 </html>
