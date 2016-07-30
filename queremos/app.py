@@ -14,6 +14,11 @@ mimerender.register_mime('pdf', ('application/pdf',))
 mimerender = mimerender.FlaskMimeRender(global_charset='UTF-8')
 
 app = Flask(__name__)
+formatter = logging.Formatter("%(asctime)s \t %(message)s") 
+handler = RotatingFileHandler('solicitudes.log', maxBytes=100000, backupCount=1)
+handler.setFormatter(formatter)
+app.logger.addHandler(handler)
+app.logger.setLevel(logging.INFO)
 
 def render_pdf(html):
     page_settings = [CSS(string='@page { size: A3; margin: 1cm }')]
@@ -101,10 +106,5 @@ def formulario():
 
 
 if __name__ == '__main__':
-    formatter = logging.Formatter("%(asctime)s \t %(message)s") 
-    handler = RotatingFileHandler('solicitudes.log', maxBytes=100000, backupCount=1)
-    handler.setFormatter(formatter)
-    app.logger.addHandler(handler)
-    app.logger.setLevel(logging.INFO)
 
     app.run(host='0.0.0.0', port=5000, threaded=True)
