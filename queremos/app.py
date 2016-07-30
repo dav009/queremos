@@ -1,5 +1,7 @@
 import json
 import time
+import logging
+from logging.handlers import RotatingFileHandler
 
 from flask import current_app, Flask, request, Response, render_template, Markup
 from weasyprint import HTML, CSS
@@ -86,6 +88,10 @@ def generar_solicitud():
     elif request.form:
         answers = form_to_json_request(request.form)
 
+    logging_info = {'dataset': answers['dataset'], 'institucion': answers['institucion']}
+
+    app.logger.info(json.dumps(logging_info))    
+
     html = render_template('solicitud.html', solicitud=generate_base_letter(answers))
     return { 'html': html }
 
@@ -95,4 +101,10 @@ def formulario():
 
 
 if __name__ == '__main__':
+    formatter = logging.Formatter("%(asctime)s \t %(message)s") 
+    handler = RotatingFileHandler('solicitudes.log', maxBytes=100000, backupCount=1)
+    handler.setFormatter(formatter)
+    app.logger.addHandler(handler)
+    app.logger.setLevel(logging.INFO)
+
     app.run(host='0.0.0.0', port=5000, threaded=True)
