@@ -14,7 +14,7 @@ mimerender = mimerender.FlaskMimeRender(global_charset='UTF-8')
 app = Flask(__name__)
 
 def render_pdf(html):
-    page_settings = [CSS(string='@page { size: A4; margin: 1cm }')]
+    page_settings = [CSS(string='@page { size: A3; margin: 1cm }')]
     pdf = HTML(string=html).write_pdf(stylesheets=page_settings)
     return pdf
 
