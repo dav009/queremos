@@ -52,8 +52,12 @@
    <div class="container-fluid">
        <h1>Generador Carta de Solicitud de Datos Abiertos</h1>
        <p class="lead">
-          Llene el siguiente formulario para generar la carta que debe enviar a la institucion publica para solicitar datos abiertos
+          Llene el siguiente formulario para generar la carta que debe enviar a la institución pública para solicitar datos abiertos
        </p>
+
+        <p>
+          La carta generada esta basada en el <a href="http://flip.org.co/sites/default/files/archivos_publicacion/Manual%20de%20acceso%20a%20la%20informaci%C3%B3n%20web.pdf" target="_blank">manual acceso a la informacion publica</a> hecho por <a href="http://flip.org.co" target="_blank">FLIP</a>
+        </p> 
    </div>
    <div class="container-fluid">
     <form method="POST" target="_blank" action="generar_solicitar">
@@ -86,17 +90,17 @@
                   </div>
 
                   <div class="form-group">
-                      <label for="telefono">Telefono</label>
+                      <label for="telefono">Teléfono</label>
                       <input type="text" class="form-control input-sm" name="solicitante_telefono" placeholder="111 5555">
                   </div>
 
                   <div class="form-group">
-                      <label for="direccion">Direccion</label>
+                      <label for="direccion">Dirección</label>
                       <input type="text" class="form-control input-sm" name="solicitante_direccion" placeholder="Calle A # B - Z, Cali">
                   </div>
 
                   <div class="form-group col-sm-2">
-                    <label for="nombre">Tipo Identificacion</label>
+                    <label for="nombre">Tipo Identificación</label>
                     <select name="solicitante_tipo_id" class="selectpicker">
                       <option>CC</option>
                       <option>TI</option>
@@ -105,7 +109,7 @@
                     </select>
                   </div>
                   <div class="form-group col-sm-4">
-                    <label for="identificacion">Identificacion</label>
+                    <label for="identificacion">Identificación</label>
                     <input type="text" class="form-control" name="solicitante_identificacion" placeholder="123">
                   </div>
               </div>
@@ -117,7 +121,7 @@
       <div class="row">
           <div class="col-sm-12">
               <div class="panel panel-primary">
-                  <div class="panel-heading">Informacion sobre la Entidad</div>
+                  <div class="panel-heading">Información sobre la Entidad</div>
                   <div class="panel-body">
                     <div class="form-group">
                           <label for="entidad_nombre">Nombre</label>
@@ -128,11 +132,11 @@
                           <input type="text" class="form-control input-sm" name="entidad_ciudad" placeholder="Medellin">
                       </div>
                       <div class="form-group">
-                          <label for="entidad_direccion">Direccion</label>
+                          <label for="entidad_direccion">Dirección</label>
                           <input type="text" class="form-control input-sm" name="entidad_direccion" placeholder="Calle Z # T-A">
                       </div>
                       <div class="form-group">
-                          <label for="entidad_telefono">Telefono</label>
+                          <label for="entidad_telefono">Teléfono</label>
                           <input type="text" class="form-control input-sm" name="entidad_telefono" placeholder="555">
                       </div>
                  </div>   
@@ -144,7 +148,7 @@
             <div class="col-sm-12">
 
           <div class="panel panel-primary">
-              <div class="panel-heading">Informacion sobre el funcionario al que dirige la peticion</div>
+              <div class="panel-heading">Información sobre el funcionario al que dirige la petición</div>
               <div class="panel-body">
                 <div class="form-group">
                       <label for="funcionario_nombre">Nombre</label>
@@ -160,7 +164,7 @@
                   </div>
                   <div class="form-group">
                       <label for="funcionario_cargo">Cargo(i.e: Rector)</label>
-                      <input type="text" class="form-control input-sm" name="funcionario_cargo" placeholder="Admnisitradora general del Senado de la Republica">
+                      <input type="text" class="form-control input-sm" name="funcionario_cargo" placeholder="Admnisitradora general del Senado de la República">
                   </div>
               </div>
           </div>
@@ -170,24 +174,24 @@
       <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-primary">
-                <div class="panel-heading">Informacion sobre el dataset</div>
+                <div class="panel-heading">Información sobre el dataset</div>
                 <div class="panel-body">
                   <div class="form-group">
                         <label for="dataset_descripcion">
-                          Descripcion de los datos solicitados
+                          Descripción de los datos solicitados
                         </label>
                         <textarea class="form-control" rows="5" name="dataset_descripcion" placeholder="Dataset sobre  la asistencia de senadores a las plenarias parlamentarias"></textarea>
                     
                   </div>
                   <div class="form-group">
                         <label for="dataset_campos">
-                          Campos que espera encontrar en el dataset (divididos por comma)
+                          Campos que espera encontrar en el dataset (divididos por coma)
                         </label>
                         <textarea class="form-control" rows="3" name="dataset_campos" placeholder="Nombre Senador, CC Senador, Fecha de Ingreso al senado..."></textarea>
                   </div>
                   <div class="input-group input-daterange">
                       <input name="fecha_inicial" type="text" class="form-control" value="2010-01-01">
-                      <span class="input-group-addon">to</span>
+                      <span class="input-group-addon">a</span>
                       <input name="fecha_final" type="text" class="form-control" value="2016-01-01">
                   </div>
                 </div>
@@ -199,7 +203,7 @@
       <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-primary">
-                <div class="panel-heading">Clasificacion</div>
+                <div class="panel-heading">Clasificación</div>
                 <div class="panel-body">
                   <div class="form-group">
                       <label>
@@ -226,19 +230,19 @@
                   <div class="form-group">
                       <label>
                         <input type="checkbox" name="datos_industriales_flag">
-                        Son datos que podrian considerarse secretos industriales?
+                        Son datos que podrían considerarse secretos industriales?
                       </label>
                   </div>
                     <div class="form-group">
                       <label>
                         <input type="checkbox" name="seguridad_nacional_flag">
-                        Son datos  que podrian afectar la seguridad nacional?
+                        Son datos  que podrían afectar la seguridad nacional?
                       </label>                
                     </div>
                     <div class="form-group">
                       <label>
                         <input type="checkbox" name="investigaciones_en_curso_flag">
-                        Son datos generados apartir de una investigacion judicial aun en curso?
+                        Son datos generados apartir de una investigación judicial aun en curso?
                       </label>
                     </div>
                 </div>
@@ -254,10 +258,7 @@
       </div>   
      <hr>
       <footer>
-        <p>www.datosabiertos.co - <i>Respetamos tu privacidad no almacenamos ninguno de tus datos personales</i></p>
-        <p>
-          La carta generada esta basada en el <a href="http://flip.org.co/sites/default/files/archivos_publicacion/Manual%20de%20acceso%20a%20la%20informaci%C3%B3n%20web.pdf" target="_blank">manual acceso a la informacion publica</a> hecho por <a href="http://flip.org.co" target="_blank">FLIP</a>
-        </p>  
+        <p>www.datosabiertos.co - <i>Respetamos tu privacidad no almacenamos ninguno de tus datos personales</i></p> 
       </footer>
     </form>  
     </div><!-- /.container -->
